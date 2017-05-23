@@ -24,9 +24,10 @@ class Blog extends MY_Controller {
     }
 	public function index()
 	{     
-            $this->load->model('blog_model');        
-            $this->blog_model->testModel();
-              $this->load->view('blog/index'); 
+            $this->load->model('blog_model','blog');        
+            $res=$this->blog->getBlog();
+            $data['blogdata']=$res;
+            $this->load->view('blog/index',$data); 
                
 	}
 }

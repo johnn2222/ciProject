@@ -70,7 +70,30 @@
 	<h1>Welcome to Blog !</h1>
 
 	<div id="body">
-		
+            <table>
+                <tr>
+                <th>sno.</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Author</th>
+                <th colspan="2">Operation</th>
+                </tr>
+                <?php 
+                $i=1;
+                foreach($blogdata as $row):?>
+                <tr>
+                    <td><?php echo $i ?></td>
+                    <td><?php echo $row['TITLE'];?></td>   
+                    <td><?php echo $row['DESCRIPTION'];?></td>   
+                    <td><?php echo $row['AUTHOR'];?></td>   
+                    <td>Edit</td>
+                    <td>Delete</td>
+                </tr>
+                <?php
+                $i++;
+                endforeach;?>
+                
+            </table>
 	</div>
 	
 </div>

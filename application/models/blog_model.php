@@ -1,9 +1,11 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Blog_Model extends MY_Model{
     
-//    public function testModel2(){
-//        echo "model";
-//    }
+    public function getblog(){
+        return [
+          ["ID"=>"2","AUTHOR"=>"john","TITLE"=>"SEO","DESCRIPTION"=>"seo is a search engine optimization on google"]
+        ];
+    }    
     
 }
 
