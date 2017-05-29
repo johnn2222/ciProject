@@ -1,11 +1,7 @@
 <?php
-class MY_Model extends CI_Model{
-    
-    public function __construct() {
-        parent::__construct();
-    }
-    public function testModel(){
-        echo "this is from my model";
+class User extends MY_Controller{
+public function index(){
+    echo "we are in user controller";
     }
 }
 /* 

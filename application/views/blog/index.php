@@ -70,6 +70,10 @@
 	<h1>Welcome to Blog !</h1>
 
 	<div id="body">
+            <span style="width:100%;float:left;margin:0;background:#ccc;color:green;">
+                <?php if($this->session->flashdata('succ_msg')):echo $this->session->flashdata("succ_msg"); endif;?>
+            </span>
+            <a href="blog/addBlog">Add Blog</a>
             <table>
                 <tr>
                 <th>sno.</th>
@@ -80,6 +84,7 @@
                 </tr>
                 <?php 
                 $i=1;
+                if(isset($blogdata)):
                 foreach($blogdata as $row):?>
                 <tr>
                     <td><?php echo $i ?></td>
@@ -91,7 +96,8 @@
                 </tr>
                 <?php
                 $i++;
-                endforeach;?>
+                endforeach;
+              endif;  ?>
                 
             </table>
 	</div>

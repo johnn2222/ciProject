@@ -2,6 +2,7 @@
 
 class Blog extends MY_Controller {
 
+   
 	/**
 	 * Index Page for this controller.
 	 *
@@ -20,16 +21,37 @@ class Blog extends MY_Controller {
     
     public function __construct() {
         parent::__construct();
+        $this->load->model('blog_model','blog');
        
     }
 	public function index()
 	{     
-            $this->load->model('blog_model','blog');        
+                  
             $res=$this->blog->getBlog();
             $data['blogdata']=$res;
             $this->load->view('blog/index',$data); 
                
 	}
+        
+        public function addBlog(){
+             $this->load->view('blog/addBlog');
+            if($this->input->post()):
+                  $data=$this->input->post('info');
+                  if($this->blog->insertBlog($data)):
+                    $this->session->set_flashdata("succ_msg","blog inseted!");
+                     redirect('blog');
+                  endif;
+                 
+                  
+            endif;
+            
+        }
+        public function getBlog(){
+            
+        }
+
+        
+       
 }
 
 /* End of file welcome.php */

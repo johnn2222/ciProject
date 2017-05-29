@@ -1,11 +1,19 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
-class Blog_Model extends MY_Model{
+class Blog_Model extends MY_Model{ 
+    public function __construct() {
+        parent::__construct();        
+    }
     
     public function getblog(){
-        return [
-          ["ID"=>"2","AUTHOR"=>"john","TITLE"=>"SEO","DESCRIPTION"=>"seo is a search engine optimization on google"]
-        ];
-    }    
+        $qry=$this->db->select('TITLE,ID,DESCRIPTION,AUTHOR')
+                        ->get("BLOG");
+        $res=$qry->result_array();
+       return $res;                        
+    }
+    public function insertBlog($data=null){       
+        $qry=$this->db->insert("BLOG",$data);        
+        return $qry;        
+    }
     
 }
 
